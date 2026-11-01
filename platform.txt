@@ -152,8 +152,8 @@ recipe.output.save_file={build.project_name}.{build.board}.{build.preferred_out_
 
 ## Compute size recipe.advanced_size.pattern
 recipe.size.pattern="{compiler.path}{compiler.size.cmd}" -A "{build.path}/{build.project_name}.elf"
-recipe.size.regex=^(?:\.text|\.data|\.rodata)\s+([0-9]+).*
-recipe.size.regex.data=^(?:\.data|\.bss|\.noinit)\s+([0-9]+).*
+recipe.size.regex=^(?:\.text|\.data|\.rodata|\.highcode)\s+([0-9]+).*
+recipe.size.regex.data=^(?:\.data|\.bss|\.noinit|\.highcode)\s+([0-9]+).*
 
 
 
@@ -193,3 +193,16 @@ debug.server=openocd
 debug.server.openocd.path={runtime.tools.openocd-1.0.0.path}/bin/openocd
 debug.server.openocd.scripts_dir={debug.toolchain.path}/scripts
 debug.server.openocd.script={runtime.tools.openocd.path}/bin/wch-riscv.cfg
+
+# ---------------------------------------------------------------- CH5xx (CH57x, CH58x, CH59x)
+# wchisp (https://github.com/ch32-rs/wchisp, MIT/Apache): carga por el USB con el boton BOOT.
+# Va dentro de la plataforma (tools/wchisp). En Windows necesita el driver WinUSB para el
+# dispositivo de arranque de WCH (Zadig) y el runtime de Visual C++.
+tools.wchisp_ch5xx.path={runtime.platform.path}/tools/wchisp/linux
+tools.wchisp_ch5xx.path.windows={runtime.platform.path}/tools/wchisp/win
+tools.wchisp_ch5xx.path.macosx={runtime.platform.path}/tools/wchisp/macosx
+tools.wchisp_ch5xx.cmd=wchisp
+tools.wchisp_ch5xx.cmd.windows=wchisp.exe
+tools.wchisp_ch5xx.upload.params.verbose=-v
+tools.wchisp_ch5xx.upload.params.quiet=
+tools.wchisp_ch5xx.upload.pattern="{path}/{cmd}" {upload.verbose} flash "{build.path}/{build.project_name}.elf"

@@ -879,3 +879,157 @@ CH32L10x_EVT.menu.rtlib.nanofps.build.flags.ldflags=--specs=nano.specs --specs=n
 CH32L10x_EVT.menu.rtlib.full=Newlib Standard
 CH32L10x_EVT.menu.rtlib.full.build.flags.ldflags=--specs=nosys.specs
 
+
+##############################################################################
+## CH5xx (WCH BLE, RISC-V): nucleo propio en cores/ch5xx con el SDK de WCH.
+## Agregado por MikrocontrollerCephs (CEPH81).
+
+############################################################
+CH58x_EVT.name=CH58x (CH582/CH583)
+CH58x_EVT.build.core=ch5xx
+CH58x_EVT.build.series=CH58x
+CH58x_EVT.build.mcu=QingKe-V4
+CH58x_EVT.build.march=rv32imac
+CH58x_EVT.build.mabi=ilp32
+CH58x_EVT.build.ldscript=Link.ld
+CH58x_EVT.build.flags.ldflags=
+CH58x_EVT.build.ch_extra_lib="-L{build.system.path}/CH58x/SRC/Peripheral" -lISP583 -lm
+CH58x_EVT.build.variant_h=pins_arduino.h
+CH58x_EVT.upload.maximum_data_size=32768
+CH58x_EVT.debug.tool=gdb-WCH_LinkE
+CH58x_EVT.menu.pnum.CH582F_WeAct=WeAct Studio CH582F
+CH58x_EVT.menu.pnum.CH582F_WeAct.build.board=CH582F_WeAct
+CH58x_EVT.menu.pnum.CH582F_WeAct.build.variant=CH58x/CH582F_WeAct
+CH58x_EVT.menu.pnum.CH582F_WeAct.build.chip=CH582
+CH58x_EVT.menu.pnum.CH582F_WeAct.upload.maximum_size=458752
+CH58x_EVT.menu.pnum.CH583M=CH583M / CH582M (placa generica)
+CH58x_EVT.menu.pnum.CH583M.build.board=CH583M
+CH58x_EVT.menu.pnum.CH583M.build.variant=CH58x/CH583M
+CH58x_EVT.menu.pnum.CH583M.build.chip=CH583
+CH58x_EVT.menu.pnum.CH583M.upload.maximum_size=458752
+CH58x_EVT.menu.clock.60MHz=60 MHz (PLL)
+CH58x_EVT.menu.clock.60MHz.build.flags.clock=-DF_CPU=60000000 -DFREQ_SYS=60000000
+CH58x_EVT.menu.clock.80MHz=80 MHz (PLL)
+CH58x_EVT.menu.clock.80MHz.build.flags.clock=-DF_CPU=80000000 -DFREQ_SYS=80000000
+CH58x_EVT.menu.clock.48MHz=48 MHz (PLL)
+CH58x_EVT.menu.clock.48MHz.build.flags.clock=-DF_CPU=48000000 -DFREQ_SYS=48000000
+CH58x_EVT.menu.clock.32MHz=32 MHz (PLL)
+CH58x_EVT.menu.clock.32MHz.build.flags.clock=-DF_CPU=32000000 -DFREQ_SYS=32000000
+CH58x_EVT.menu.clock.24MHz=24 MHz (PLL)
+CH58x_EVT.menu.clock.24MHz.build.flags.clock=-DF_CPU=24000000 -DFREQ_SYS=24000000
+CH58x_EVT.menu.upload_method.ispMethod=WCH-ISP (USB, boton BOOT)
+CH58x_EVT.menu.upload_method.ispMethod.upload.tool=wchisp_ch5xx
+CH58x_EVT.menu.upload_method.ispMethod.upload.require_upload_port=false
+CH58x_EVT.menu.upload_method.ispMethod.upload.protocol=
+CH58x_EVT.menu.upload_method.ispMethod.upload.options=
+CH58x_EVT.menu.upload_method.swdMethod=WCH-Link / WCH-LinkE (modo RISC-V)
+CH58x_EVT.menu.upload_method.swdMethod.upload.tool=WCH_linkE
+CH58x_EVT.menu.upload_method.swdMethod.upload.protocol=
+CH58x_EVT.menu.upload_method.swdMethod.upload.options=
+CH58x_EVT.menu.opt.osstd=Tamano (-Os)
+CH58x_EVT.menu.opt.osstd.build.flags.optimize=-Os
+CH58x_EVT.menu.opt.o2std=Velocidad (-O2)
+CH58x_EVT.menu.opt.o2std.build.flags.optimize=-O2
+CH58x_EVT.menu.opt.ogstd=Depuracion (-Og)
+CH58x_EVT.menu.opt.ogstd.build.flags.optimize=-Og
+CH58x_EVT.menu.dbg.none=Sin simbolos
+CH58x_EVT.menu.dbg.none.build.flags.debug=
+CH58x_EVT.menu.dbg.enable=Con simbolos (-g)
+CH58x_EVT.menu.dbg.enable.build.flags.debug=-g
+
+############################################################
+CH59x_EVT.name=CH59x (CH591/CH592)
+CH59x_EVT.build.core=ch5xx
+CH59x_EVT.build.series=CH59x
+CH59x_EVT.build.mcu=QingKe-V4
+CH59x_EVT.build.march=rv32imac
+CH59x_EVT.build.mabi=ilp32
+CH59x_EVT.build.ldscript=Link.ld
+CH59x_EVT.build.flags.ldflags=
+CH59x_EVT.build.ch_extra_lib="-L{build.system.path}/CH59x/SRC/Peripheral" -lISP592 -lm
+CH59x_EVT.build.variant_h=pins_arduino.h
+CH59x_EVT.upload.maximum_data_size=26624
+CH59x_EVT.debug.tool=gdb-WCH_LinkE
+CH59x_EVT.menu.pnum.CH592F_WeAct=WeAct Studio CH592F
+CH59x_EVT.menu.pnum.CH592F_WeAct.build.board=CH592F_WeAct
+CH59x_EVT.menu.pnum.CH592F_WeAct.build.variant=CH59x/CH592F_WeAct
+CH59x_EVT.menu.pnum.CH592F_WeAct.build.chip=CH592
+CH59x_EVT.menu.pnum.CH592F_WeAct.upload.maximum_size=458752
+CH59x_EVT.menu.clock.60MHz=60 MHz (PLL)
+CH59x_EVT.menu.clock.60MHz.build.flags.clock=-DF_CPU=60000000 -DFREQ_SYS=60000000
+CH59x_EVT.menu.clock.48MHz=48 MHz (PLL)
+CH59x_EVT.menu.clock.48MHz.build.flags.clock=-DF_CPU=48000000 -DFREQ_SYS=48000000
+CH59x_EVT.menu.clock.32MHz=32 MHz (PLL)
+CH59x_EVT.menu.clock.32MHz.build.flags.clock=-DF_CPU=32000000 -DFREQ_SYS=32000000
+CH59x_EVT.menu.clock.24MHz=24 MHz (PLL)
+CH59x_EVT.menu.clock.24MHz.build.flags.clock=-DF_CPU=24000000 -DFREQ_SYS=24000000
+CH59x_EVT.menu.upload_method.ispMethod=WCH-ISP (USB, boton BOOT)
+CH59x_EVT.menu.upload_method.ispMethod.upload.tool=wchisp_ch5xx
+CH59x_EVT.menu.upload_method.ispMethod.upload.require_upload_port=false
+CH59x_EVT.menu.upload_method.ispMethod.upload.protocol=
+CH59x_EVT.menu.upload_method.ispMethod.upload.options=
+CH59x_EVT.menu.upload_method.swdMethod=WCH-Link / WCH-LinkE (modo RISC-V)
+CH59x_EVT.menu.upload_method.swdMethod.upload.tool=WCH_linkE
+CH59x_EVT.menu.upload_method.swdMethod.upload.protocol=
+CH59x_EVT.menu.upload_method.swdMethod.upload.options=
+CH59x_EVT.menu.opt.osstd=Tamano (-Os)
+CH59x_EVT.menu.opt.osstd.build.flags.optimize=-Os
+CH59x_EVT.menu.opt.o2std=Velocidad (-O2)
+CH59x_EVT.menu.opt.o2std.build.flags.optimize=-O2
+CH59x_EVT.menu.opt.ogstd=Depuracion (-Og)
+CH59x_EVT.menu.opt.ogstd.build.flags.optimize=-Og
+CH59x_EVT.menu.dbg.none=Sin simbolos
+CH59x_EVT.menu.dbg.none.build.flags.debug=
+CH59x_EVT.menu.dbg.enable=Con simbolos (-g)
+CH59x_EVT.menu.dbg.enable.build.flags.debug=-g
+
+############################################################
+CH573_EVT.name=CH57x (CH571/CH573)
+CH573_EVT.build.core=ch5xx
+CH573_EVT.build.series=CH573
+CH573_EVT.build.mcu=QingKe-V4
+CH573_EVT.build.march=rv32imac
+CH573_EVT.build.mabi=ilp32
+CH573_EVT.build.ldscript=Link.ld
+CH573_EVT.build.flags.ldflags=
+CH573_EVT.build.ch_extra_lib="-L{build.system.path}/CH573/SRC/Peripheral" -lISP573 -lm
+CH573_EVT.build.variant_h=pins_arduino.h
+CH573_EVT.upload.maximum_data_size=18432
+CH573_EVT.debug.tool=gdb-WCH_LinkE
+CH573_EVT.menu.pnum.CH573F_WeAct=WeAct Studio CH573F
+CH573_EVT.menu.pnum.CH573F_WeAct.build.board=CH573F_WeAct
+CH573_EVT.menu.pnum.CH573F_WeAct.build.variant=CH573/CH573F_WeAct
+CH573_EVT.menu.pnum.CH573F_WeAct.build.chip=CH573
+CH573_EVT.menu.pnum.CH573F_WeAct.upload.maximum_size=458752
+CH573_EVT.menu.pnum.CH571F=CH571F (192 KB)
+CH573_EVT.menu.pnum.CH571F.build.board=CH571F
+CH573_EVT.menu.pnum.CH571F.build.variant=CH573/CH573F_WeAct
+CH573_EVT.menu.pnum.CH571F.build.chip=CH571
+CH573_EVT.menu.pnum.CH571F.upload.maximum_size=196608
+CH573_EVT.menu.clock.60MHz=60 MHz (PLL)
+CH573_EVT.menu.clock.60MHz.build.flags.clock=-DF_CPU=60000000 -DFREQ_SYS=60000000
+CH573_EVT.menu.clock.48MHz=48 MHz (PLL)
+CH573_EVT.menu.clock.48MHz.build.flags.clock=-DF_CPU=48000000 -DFREQ_SYS=48000000
+CH573_EVT.menu.clock.32MHz=32 MHz (PLL)
+CH573_EVT.menu.clock.32MHz.build.flags.clock=-DF_CPU=32000000 -DFREQ_SYS=32000000
+CH573_EVT.menu.clock.24MHz=24 MHz (PLL)
+CH573_EVT.menu.clock.24MHz.build.flags.clock=-DF_CPU=24000000 -DFREQ_SYS=24000000
+CH573_EVT.menu.upload_method.ispMethod=WCH-ISP (USB, boton BOOT)
+CH573_EVT.menu.upload_method.ispMethod.upload.tool=wchisp_ch5xx
+CH573_EVT.menu.upload_method.ispMethod.upload.require_upload_port=false
+CH573_EVT.menu.upload_method.ispMethod.upload.protocol=
+CH573_EVT.menu.upload_method.ispMethod.upload.options=
+CH573_EVT.menu.upload_method.swdMethod=WCH-Link / WCH-LinkE (modo RISC-V)
+CH573_EVT.menu.upload_method.swdMethod.upload.tool=WCH_linkE
+CH573_EVT.menu.upload_method.swdMethod.upload.protocol=
+CH573_EVT.menu.upload_method.swdMethod.upload.options=
+CH573_EVT.menu.opt.osstd=Tamano (-Os)
+CH573_EVT.menu.opt.osstd.build.flags.optimize=-Os
+CH573_EVT.menu.opt.o2std=Velocidad (-O2)
+CH573_EVT.menu.opt.o2std.build.flags.optimize=-O2
+CH573_EVT.menu.opt.ogstd=Depuracion (-Og)
+CH573_EVT.menu.opt.ogstd.build.flags.optimize=-Og
+CH573_EVT.menu.dbg.none=Sin simbolos
+CH573_EVT.menu.dbg.none.build.flags.debug=
+CH573_EVT.menu.dbg.enable=Con simbolos (-g)
+CH573_EVT.menu.dbg.enable.build.flags.debug=-g

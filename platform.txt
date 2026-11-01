@@ -4,8 +4,8 @@
 # For more info at:
 # https://arduino.github.io/arduino-cli/latest/platform-specification/
 
-name=CH32V EVT Boards Support
-version=1.0.0
+name=CH32V + CH5xx (fork MikrocontrollerCephs)
+version=1.1.0
 
 # Compile variables
 # ----------------------
@@ -173,8 +173,12 @@ tools.WCH_linkE.upload.pattern="{path}{cmd}" -f "{upload.config}" -c init -c hal
 
 
 ## WCH-ISP
-tools.wchisp.path={runtime.tools.wchisp.path}/
+# wchisp va dentro de la plataforma (tools/wchisp), tambien para los CH32
+tools.wchisp.path={runtime.platform.path}/tools/wchisp/linux/
+tools.wchisp.path.windows={runtime.platform.path}/tools/wchisp/win/
+tools.wchisp.path.macosx={runtime.platform.path}/tools/wchisp/macosx/
 tools.wchisp.cmd=wchisp
+tools.wchisp.cmd.windows=wchisp.exe
 tools.wchisp.upload.params.verbose=
 tools.wchisp.upload.params.quiet=
 tools.wchisp.upload.pattern="{path}{cmd}" {upload.verbose} flash "{build.path}/{build.project_name}.elf"

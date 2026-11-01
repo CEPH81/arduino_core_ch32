@@ -16,6 +16,17 @@ oficiales de WCH. Los CH32 de openwch siguen igual.
 
 CH570/CH572 (openwch/ch570): en preparación (tienen un solo puerto GPIO y una sola UART).
 
+## Instalación (Gestor de placas, Arduino IDE 2.x)
+
+1. **Archivo → Preferencias → URLs adicionales del gestor de placas**:
+   ```
+   https://raw.githubusercontent.com/CEPH81/arduino_core_ch32/ch5xx/package_ch32v_ceph81_index.json
+   ```
+2. **Herramientas → Placa → Gestor de placas**, busque **CH32V + CH5xx** e instale. Se
+   descargan el compilador RISC-V y openocd de WCH (los mismos del paquete oficial de openwch).
+3. Las placas aparecen en **CH32V + CH5xx (fork MikrocontrollerCephs)**: los CH32 de openwch y
+   los CH5xx. Puede convivir con el paquete oficial de WCH.
+
 ## Qué funciona
 
 - `pinMode` (INPUT, INPUT_PULLUP, INPUT_PULLDOWN, OUTPUT), `digitalWrite/Read/Toggle`.

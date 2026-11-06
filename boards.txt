@@ -917,6 +917,10 @@ CH58x_EVT.menu.clock.32MHz=32 MHz (PLL)
 CH58x_EVT.menu.clock.32MHz.build.flags.clock=-DF_CPU=32000000 -DFREQ_SYS=32000000
 CH58x_EVT.menu.clock.24MHz=24 MHz (PLL)
 CH58x_EVT.menu.clock.24MHz.build.flags.clock=-DF_CPU=24000000 -DFREQ_SYS=24000000
+CH58x_EVT.menu.usb.uart=Serial = UART1 (PA9 TX, PA8 RX); SerialUSB disponible
+CH58x_EVT.menu.usb.uart.build.usb_flags=
+CH58x_EVT.menu.usb.cdc=Serial = USB CDC (puerto COM por el USB de la placa)
+CH58x_EVT.menu.usb.cdc.build.usb_flags=-DCH5XX_SERIAL_USB
 CH58x_EVT.menu.upload_method.ispMethod=WCH-ISP (USB, boton BOOT)
 CH58x_EVT.menu.upload_method.ispMethod.upload.tool=wchisp_ch5xx
 CH58x_EVT.menu.upload_method.ispMethod.upload.require_upload_port=false
@@ -963,6 +967,10 @@ CH59x_EVT.menu.clock.32MHz=32 MHz (PLL)
 CH59x_EVT.menu.clock.32MHz.build.flags.clock=-DF_CPU=32000000 -DFREQ_SYS=32000000
 CH59x_EVT.menu.clock.24MHz=24 MHz (PLL)
 CH59x_EVT.menu.clock.24MHz.build.flags.clock=-DF_CPU=24000000 -DFREQ_SYS=24000000
+CH59x_EVT.menu.usb.uart=Serial = UART1 (PA9 TX, PA8 RX); SerialUSB disponible
+CH59x_EVT.menu.usb.uart.build.usb_flags=
+CH59x_EVT.menu.usb.cdc=Serial = USB CDC (puerto COM por el USB de la placa)
+CH59x_EVT.menu.usb.cdc.build.usb_flags=-DCH5XX_SERIAL_USB
 CH59x_EVT.menu.upload_method.ispMethod=WCH-ISP (USB, boton BOOT)
 CH59x_EVT.menu.upload_method.ispMethod.upload.tool=wchisp_ch5xx
 CH59x_EVT.menu.upload_method.ispMethod.upload.require_upload_port=false
@@ -1014,6 +1022,10 @@ CH573_EVT.menu.clock.32MHz=32 MHz (PLL)
 CH573_EVT.menu.clock.32MHz.build.flags.clock=-DF_CPU=32000000 -DFREQ_SYS=32000000
 CH573_EVT.menu.clock.24MHz=24 MHz (PLL)
 CH573_EVT.menu.clock.24MHz.build.flags.clock=-DF_CPU=24000000 -DFREQ_SYS=24000000
+CH573_EVT.menu.usb.uart=Serial = UART1 (PA9 TX, PA8 RX); SerialUSB disponible
+CH573_EVT.menu.usb.uart.build.usb_flags=
+CH573_EVT.menu.usb.cdc=Serial = USB CDC (puerto COM por el USB de la placa)
+CH573_EVT.menu.usb.cdc.build.usb_flags=-DCH5XX_SERIAL_USB
 CH573_EVT.menu.upload_method.ispMethod=WCH-ISP (USB, boton BOOT)
 CH573_EVT.menu.upload_method.ispMethod.upload.tool=wchisp_ch5xx
 CH573_EVT.menu.upload_method.ispMethod.upload.require_upload_port=false

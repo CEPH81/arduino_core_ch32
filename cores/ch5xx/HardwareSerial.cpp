@@ -102,7 +102,7 @@ void HardwareSerial::flush()
         ;
 }
 
-HardwareSerial Serial(1, PIN_SERIAL1_RX, PIN_SERIAL1_TX);
+HardwareSerial Serial1(1, PIN_SERIAL1_RX, PIN_SERIAL1_TX);
 HardwareSerial Serial0(0, PIN_SERIAL0_RX, PIN_SERIAL0_TX);
 HardwareSerial Serial2(2, PIN_SERIAL2_RX, PIN_SERIAL2_TX);
 HardwareSerial Serial3(3, PIN_SERIAL3_RX, PIN_SERIAL3_TX);
@@ -117,12 +117,14 @@ __INTERRUPT __HIGH_CODE void UART3_IRQHandler(void) { if (uarts[3]) uarts[3]->_r
 /* serialEvent(): si el sketch la define, se llama despues de cada loop() */
 void serialEvent() __attribute__((weak));
 void serialEvent0() __attribute__((weak));
+void serialEvent1() __attribute__((weak));
 void serialEvent2() __attribute__((weak));
 void serialEvent3() __attribute__((weak));
 
 void serialEventRun(void)
 {
-    if (serialEvent && Serial.available()) serialEvent();
+    if (serialEvent && Serial.available()) serialEvent();   /* Serial1 o SerialUSB */
+    if (serialEvent1 && Serial1.available()) serialEvent1();
     if (serialEvent0 && Serial0.available()) serialEvent0();
     if (serialEvent2 && Serial2.available()) serialEvent2();
     if (serialEvent3 && Serial3.available()) serialEvent3();

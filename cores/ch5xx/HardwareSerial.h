@@ -1,6 +1,7 @@
 /*
  * HardwareSerial.h - UART0..UART3 de los CH58x/CH59x.
- *   Serial  = UART1 (TX PA9, RX PA8), como el puerto de depuracion de WCH
+ *   Serial1 = UART1 (TX PA9, RX PA8), como el puerto de depuracion de WCH;
+ *             Serial es Serial1, o SerialUSB con el menu "Serial = USB CDC"
  *   Serial0 = UART0 (TX PB7, RX PB4)   Serial2 = UART2 (TX PA7, RX PA6)
  *   Serial3 = UART3 (TX PA5, RX PA4)
  */
@@ -44,11 +45,10 @@ private:
     uint8_t _buf[SERIAL_RX_BUFFER_SIZE];
 };
 
-extern HardwareSerial Serial;
+extern HardwareSerial Serial1;
 extern HardwareSerial Serial0;
 extern HardwareSerial Serial2;
 extern HardwareSerial Serial3;
-#define Serial1 Serial
 
 extern void serialEventRun(void) __attribute__((weak));
 

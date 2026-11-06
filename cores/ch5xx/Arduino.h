@@ -88,6 +88,14 @@ uint32_t getCpuFrequencyMhz(void);
 #include "WMath.h"
 #include "Stream.h"
 #include "HardwareSerial.h"
+#include "USBSerial.h"
+
+/* Serial: UART1 (por defecto) o el USB, segun el menu "Serial" */
+#if defined(CH5XX_SERIAL_USB)
+#define Serial SerialUSB
+#else
+#define Serial Serial1
+#endif
 
 uint32_t pulseIn(uint32_t pin, uint32_t state);
 #endif

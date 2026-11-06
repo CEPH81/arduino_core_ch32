@@ -12,6 +12,68 @@
         {
           "name": "CH32V + CH5xx (fork MikrocontrollerCephs)",
           "architecture": "ch32v",
+          "version": "1.2.0",
+          "category": "Contributed",
+          "url": "https://raw.githubusercontent.com/CEPH81/arduino_core_ch32/paquetes/ch32v_ceph81-1.2.0.tar.bz2",
+          "archiveFileName": "ch32v_ceph81-1.2.0.tar.bz2",
+          "checksum": "SHA-256:6daa9d49ea8649be46271653d3c2ccd71061452e4677d29b35eff0fafc766655",
+          "size": "3193829",
+          "help": {
+            "online": "https://github.com/CEPH81/arduino_core_ch32/tree/ch5xx"
+          },
+          "boards": [
+            {
+              "name": "CH32V00x"
+            },
+            {
+              "name": "CH32VM00X"
+            },
+            {
+              "name": "CH32X035"
+            },
+            {
+              "name": "CH32V10x"
+            },
+            {
+              "name": "CH32V20x"
+            },
+            {
+              "name": "CH32V30x"
+            },
+            {
+              "name": "CH32L10x"
+            },
+            {
+              "name": "CH58x (CH582/CH583)"
+            },
+            {
+              "name": "CH59x (CH591/CH592)"
+            },
+            {
+              "name": "CH57x (CH571/CH573)"
+            }
+          ],
+          "toolsDependencies": [
+            {
+              "packager": "ceph81",
+              "name": "riscv-none-embed-gcc",
+              "version": "8.2.0"
+            },
+            {
+              "packager": "ceph81",
+              "name": "openocd",
+              "version": "1.0.0"
+            },
+            {
+              "packager": "ceph81",
+              "name": "beforeinstall",
+              "version": "1.0.0"
+            }
+          ]
+        },
+        {
+          "name": "CH32V + CH5xx (fork MikrocontrollerCephs)",
+          "architecture": "ch32v",
           "version": "1.1.0",
           "category": "Contributed",
           "url": "https://raw.githubusercontent.com/CEPH81/arduino_core_ch32/paquetes/ch32v_ceph81-1.1.0.tar.bz2",

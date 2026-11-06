@@ -10,8 +10,8 @@ Genera en dist/:
 
 Publicacion:
   1. python3 tools/paquete.py
-  2. subir el .tar.bz2 a la rama "paquetes"
-  3. copiar el .json a la raiz de la rama ch5xx y hacer push
+  2. subir el .tar.bz2 a la rama "paquetes" (dist/ no se guarda en ch5xx)
+  3. copiar el .json a la raiz de la rama ch5xx y hacer push (conserva las versiones anteriores)
   4. URL del gestor de placas:
      https://raw.githubusercontent.com/CEPH81/arduino_core_ch32/ch5xx/package_ch32v_ceph81_index.json
 """
@@ -29,9 +29,15 @@ INCLUIR = ['boards.txt', 'platform.txt', 'programmers.txt', 'README.md', 'README
            'package.json', 'cores', 'variants', 'system', 'libraries', 'tools/wchisp']
 EXCLUIR = re.compile(r'(^|/)(platform\.local\.txt|\.git[^/]*|__pycache__|[^/]*\.(o|d|pyc))(/|$)')
 
+INDICE = os.path.join(RAIZ, 'package_%s_index.json' % PAQUETE)
+
+
 def herramientas():
-    """Toma las entradas exactas del indice de openwch (board_manager_files)."""
+    """Toma las entradas exactas del indice de openwch (board_manager_files) o, si no
+    esta, las del indice publicado de este paquete (son las mismas)."""
     ruta = os.environ.get('WCH_INDEX', '/home/claude/wch/board_manager_files/package_ch32v_index.json')
+    if not os.path.exists(ruta):
+        ruta = INDICE
     d = json.load(open(ruta, encoding='utf-8'))
     return [t for t in d['packages'][0]['tools']
             if (t['name'], t['version']) in {('riscv-none-embed-gcc', '8.2.0'), ('openocd', '1.0.0'), ('beforeinstall', '1.0.0')}]
@@ -86,6 +92,11 @@ def main():
     nombre, tam, sha = crear_tar(version)
     tools = json.loads(os.environ['TOOLS_JSON']) if 'TOOLS_JSON' in os.environ else herramientas()
     web = "https://github.com/%s/tree/ch5xx" % REPO
+    # versiones anteriores publicadas (el Gestor de placas permite volver a ellas)
+    anteriores = []
+    if os.path.exists(INDICE):
+        anteriores = [p for p in json.load(open(INDICE, encoding='utf-8'))['packages'][0]['platforms']
+                      if p['version'] != version]
     indice = {"packages": [{
         "name": PACKAGER,
         "maintainer": "MikrocontrollerCephs (CEPH81) - fork de openwch/arduino_core_ch32",
@@ -96,7 +107,7 @@ def main():
             "checksum": "SHA-256:" + sha, "size": str(tam), "help": {"online": web},
             "boards": placas(),
             "toolsDependencies": [{"packager": PACKAGER, "name": t["name"], "version": t["version"]} for t in tools],
-        }],
+        }] + anteriores,
         "tools": tools,
     }]}
     ruta = os.path.join(DIST, 'package_%s_index.json' % PAQUETE)

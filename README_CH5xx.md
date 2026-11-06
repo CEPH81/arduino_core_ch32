@@ -32,14 +32,25 @@ CH570/CH572 (openwch/ch570): en preparación (tienen un solo puerto GPIO y una s
 - `pinMode` (INPUT, INPUT_PULLUP, INPUT_PULLDOWN, OUTPUT), `digitalWrite/Read/Toggle`.
   Patas: `PA0`…`PA15`, `PB0`…`PB23`.
 - `millis`, `micros`, `delay`, `delayMicroseconds` (SysTick de 64 bits).
-- `Serial` = UART1 (TX **PA9**, RX **PA8**), `Serial0` (PB7/PB4), `Serial2` (PA7/PA6),
-  `Serial3` (PA5/PA4); `printf`, `serialEvent()`.
+- `Serial1` = UART1 (TX **PA9**, RX **PA8**), `Serial0` (PB7/PB4), `Serial2` (PA7/PA6),
+  `Serial3` (PA5/PA4); `printf`, `serialEvent()`. `Serial` es `Serial1`, o el USB con el menú
+  **USB support → Serial = USB CDC**.
+- `SerialUSB`: puerto COM por el USB de la placa (CDC, sin driver en Windows 10/11, Linux y macOS).
+- **Wire** (I2C): por hardware en CH58x/CH59x, maestro y esclavo (SDA **PB12**, SCL **PB13**, o
+  `Wire.setPins(PB20, PB21)`); por software en el CH573 (no tiene I2C) o en otras patas.
+  `setClock` hasta 400 kHz, `setWireTimeout`.
+- **SPI**: SPI0 maestro (SCK **PA13**, MOSI **PA14**, MISO **PA15**; o `SPI.setPins(PB13, PB15, PB14)`),
+  modos 0 y 3 por hardware hasta Fsys/2, modos 1 y 2 por software.
+- **EEPROM**: 1024 bytes en la Data-Flash (`begin`, `read/write`, `get/put`, `commit`).
+- `tone()` / `noTone()` en cualquier pata (TMR0); `sleepUntilInterrupt()` (WFI).
 - `analogRead(A0…A13)` (ADC de 12 bits; 10 bits por defecto, `analogReadResolution(12)`),
   `analogReadMilliVolts`, `analogReadVccMilliVolts`, `temperatureRead`.
 - `analogWrite` en PA12, PA13, PB0, PB4, PB6, PB7, PB14, PB23 (PWM4–PWM11, 8 bits),
   `analogWriteFrequency`.
 - `attachInterrupt` en cualquier pata (RISING, FALLING, CHANGE, LOW, HIGH).
 - Reloj: menú **Clock Select** (60 MHz por defecto; 80 MHz en CH58x).
+
+Pendiente: BLE, bajo consumo profundo (RTC), CH570/CH572.
 
 En las placas de WeAct el LED está en **PA8** (se enciende en bajo: `LED_ON`/`LED_OFF`) y el botón
 BOOT en **PB22** (`KEY_BUILTIN`). PA8 es también el RX de `Serial`.

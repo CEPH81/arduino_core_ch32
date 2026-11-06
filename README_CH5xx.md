@@ -60,7 +60,10 @@ BOOT en **PB22** (`KEY_BUILTIN`). PA8 es también el RX de `Serial`.
 - **WCH-ISP (USB)**: mantenga pulsado BOOT, conecte el USB y suba. Usa
   [wchisp](https://github.com/ch32-rs/wchisp) (incluido en `tools/wchisp`). En Windows hace falta
   el driver WinUSB para el dispositivo de arranque de WCH (con Zadig) y el runtime de Visual C++.
-- **WCH-Link / WCH-LinkE** (modo RISC-V, openocd de WCH): por probar con estos chips.
+- **WCH-Link / WCH-LinkE** (modo RISC-V, openocd de WCH): conecte 3V3, GND, **TIO** (SWDIO) y
+  **TCK** (SWCLK). En los CH58x/CH59x/CH57x la interfaz de depuracion de 2 hilos viene
+  **desactivada de fabrica**: activela una vez por USB/ISP con
+  `wchisp config enable-debug` (o con WCHISPTool: *Enable 2-Wire Debug Interface*). Por probar.
 
 ## Licencias
 

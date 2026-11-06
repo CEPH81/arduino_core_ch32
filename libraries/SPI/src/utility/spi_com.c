@@ -1,3 +1,5 @@
+/* CH5xx: este archivo es solo para los CH32 (los CH5xx usan ch5xx/) */
+#if !(defined(CH58x) || defined(CH59x) || defined(CH573))
 /**
   ******************************************************************************
   * @file    spi_com.c
@@ -422,3 +424,5 @@ spi_status_e spi_transfer(spi_t *obj, uint8_t *tx_buffer, uint8_t *rx_buffer,
 #endif
 
 
+
+#endif /* !CH5xx */

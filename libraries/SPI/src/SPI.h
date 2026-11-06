@@ -14,6 +14,11 @@
 #ifndef _SPI_H_INCLUDED
 #define _SPI_H_INCLUDED
 
+/* CH5xx: implementacion propia (src/ch5xx) */
+#if defined(CH58x) || defined(CH59x) || defined(CH573)
+#include "ch5xx/SPI_ch5xx.h"
+#else
+
 #include "Arduino.h"
 #include <stdio.h>
 extern "C" {
@@ -327,4 +332,5 @@ class SUBGHZSPIClass : public SPIClass {
 
 #endif
 
+#endif /* CH5xx */
 #endif /* _SPI_H_INCLUDED */

@@ -1,3 +1,5 @@
+/* CH5xx: este archivo es solo para los CH32 (los CH5xx usan ch5xx/) */
+#if !(defined(CH58x) || defined(CH59x) || defined(CH573))
 /*
   TwoWire.cpp - TWI/I2C library for Wiring & Arduino
   Copyright (c) 2006 Nicholas Zambetti.  All right reserved.
@@ -525,3 +527,5 @@ void TwoWire::recoverBus(void)
 
 // Preinstantiate Objects //////////////////////////////////////////////////////
 TwoWire Wire = TwoWire( ); 
+
+#endif /* !CH5xx */

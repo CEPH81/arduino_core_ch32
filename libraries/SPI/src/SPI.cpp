@@ -1,3 +1,5 @@
+/* CH5xx: este archivo es solo para los CH32 (los CH5xx usan ch5xx/) */
+#if !(defined(CH58x) || defined(CH59x) || defined(CH573))
 /*
  * Copyright (c) 2010 by Cristian Maglie <c.maglie@arduino.cc>
  * Copyright (c) 2014 by Paul Stoffregen <paul@pjrc.com> (Transaction API)
@@ -423,3 +425,5 @@ void SPIClass::detachInterrupt(void)
   // Should be disableInterrupt()
 }
 
+
+#endif /* !CH5xx */

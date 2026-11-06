@@ -24,6 +24,11 @@
 #ifndef TwoWire_h
 #define TwoWire_h
 
+/* CH5xx: implementacion propia (src/ch5xx) */
+#if defined(CH58x) || defined(CH59x) || defined(CH573)
+#include "ch5xx/Wire_ch5xx.h"
+#else
+
 #include <functional>
 
 #include "Stream.h"
@@ -152,4 +157,5 @@ class TwoWire : public Stream {
 
 extern TwoWire Wire;
 
+#endif /* CH5xx */
 #endif

@@ -1,3 +1,5 @@
+/* CH5xx: este archivo es solo para los CH32 (los CH5xx usan ch5xx/) */
+#if !(defined(CH58x) || defined(CH59x) || defined(CH573))
 /**
   ******************************************************************************
   * @file    twi.c
@@ -714,3 +716,5 @@ void I2C2_ER_IRQHandler(void)
 #endif
 
 
+
+#endif /* !CH5xx */

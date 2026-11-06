@@ -30,6 +30,11 @@
 
 #ifndef EEPROM_h
 #define EEPROM_h
+
+/* CH5xx: implementacion propia (src/ch5xx) */
+#if defined(CH58x) || defined(CH59x) || defined(CH573)
+#include "ch5xx/EEPROM_ch5xx.h"
+#else
 #include <Arduino.h>
 
 // Required definitions copied from /system/CH32V00x/SRC/Peripheral/src/ch32v00x_flash.c
@@ -110,4 +115,5 @@ extern EEPROMClass EEPROM;
 #endif
 
 
+#endif /* CH5xx */
 #endif		// #ifndef EEPROM_h

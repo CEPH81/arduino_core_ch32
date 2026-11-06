@@ -72,3 +72,9 @@ uint32_t getCpuFrequencyMhz(void)
 }
 
 __attribute__((weak)) void yield(void) {}
+
+/* WFI: la CPU se detiene hasta la siguiente interrupcion habilitada */
+void sleepUntilInterrupt(void)
+{
+    __asm volatile("wfi");
+}

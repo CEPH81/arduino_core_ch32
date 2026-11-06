@@ -1,3 +1,5 @@
+/* CH5xx: este archivo es solo para los CH32 (los CH5xx usan ch5xx/) */
+#if !(defined(CH58x) || defined(CH59x) || defined(CH573))
 /*
   EEPROM - Enables reading and writing to non-volatile storage in the processor.
   
@@ -167,3 +169,5 @@ bool EEPROMClass::end() {
 #if !defined(NO_GLOBAL_INSTANCES) && !defined(NO_GLOBAL_EEPROM)
 EEPROMClass EEPROM;
 #endif
+
+#endif /* !CH5xx */

@@ -75,6 +75,10 @@ uint32_t pulseInLong(uint32_t pin, uint32_t state, uint32_t timeout);
 
 uint32_t getCpuFrequencyMhz(void);
 
+/* bajo consumo: duerme la CPU hasta la siguiente interrupcion (UART, GPIO, USB,
+ * tone...); los perifericos y la RAM siguen activos. */
+void sleepUntilInterrupt(void);
+
 #ifdef __cplusplus
 }
 #endif
@@ -98,6 +102,10 @@ uint32_t getCpuFrequencyMhz(void);
 #endif
 
 uint32_t pulseIn(uint32_t pin, uint32_t state);
+
+/* tone(): cualquier pata, una nota a la vez (TMR0) */
+void tone(uint8_t pin, unsigned int frequency, unsigned long duration = 0);
+void noTone(uint8_t pin);
 #endif
 
 #endif

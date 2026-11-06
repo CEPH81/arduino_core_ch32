@@ -5,7 +5,7 @@ arduino_core_ch32 (CH32V de openwch + CH57x/CH58x/CH59x).
 
 Genera en dist/:
   - ch32v_ceph81-<version>.tar.bz2      la plataforma
-  - package_ch32v_ceph81_index.json     indice (plataforma + compilador, openocd y beforeinstall
+  - package_ch32v_ceph81_index.json     indice (plataforma + compilador y openocd
                                         de WCH, con las mismas descargas que el indice de openwch)
 
 Publicacion:
@@ -40,7 +40,9 @@ def herramientas():
         ruta = INDICE
     d = json.load(open(ruta, encoding='utf-8'))
     return [t for t in d['packages'][0]['tools']
-            if (t['name'], t['version']) in {('riscv-none-embed-gcc', '8.2.0'), ('openocd', '1.0.0'), ('beforeinstall', '1.0.0')}]
+            if (t['name'], t['version']) in {('riscv-none-embed-gcc', '8.2.0'), ('openocd', '1.0.0')}]
+    # 'beforeinstall' de openwch no se usa: su archivo es de Linux y tiene enlaces
+    # simbolicos que Windows no deja crear ("El cliente no dispone de un privilegio requerido")
 
 
 def leer(clave):
